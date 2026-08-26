@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-nginx
+  template:
+    metadata:
+      labels:
+        app: devops-nginx
+    spec:
+      containers:
+        - name: devops-nginx
+          image: jbackup025/devops-nginx:v1
+          ports:
+            - containerPort: 80
+
